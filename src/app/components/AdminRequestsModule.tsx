@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   FileText, 
   Search, 
@@ -41,10 +41,6 @@ const AdminRequestsModule: React.FC = () => {
     loadRequests();
   }, []);
 
-  useEffect(() => {
-    filterRequests();
-  }, [requests, searchTerm, statusFilter]);
-
   const loadRequests = () => {
     const allRequests = getHelpRequests();
     const requestStats = getHelpRequestStats();
@@ -53,7 +49,7 @@ const AdminRequestsModule: React.FC = () => {
     setStats(requestStats);
   };
 
-  const filterRequests = () => {
+  const filterRequests = useCallback(() => {
     let filtered = requests;
 
     // Filtrar por término de búsqueda
@@ -74,7 +70,11 @@ const AdminRequestsModule: React.FC = () => {
     filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
     setFilteredRequests(filtered);
-  };
+  }, [requests, searchTerm, statusFilter]);
+
+  useEffect(() => {
+    filterRequests();
+  }, [filterRequests]);
 
   const handleStatusChange = (requestId: string, newStatus: HelpRequest['status']) => {
     const success = updateHelpRequestStatus(requestId, newStatus);

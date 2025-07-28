@@ -35,7 +35,7 @@ export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [activeModule, setActiveModule] = useState('requests');
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<{ username: string; role: string } | null>(null);
   const router = useRouter();
 
   // Verificar autenticación al cargar
@@ -59,20 +59,7 @@ export default function Dashboard() {
     router.push('/login');
   };
 
-  // Datos quemados para la demo
-  const stats = {
-    totalUsers: 156,
-    activeRecords: 342,
-    pendingSync: 12,
-    completedTraining: 89
-  };
-
-  const recentRecords = [
-    { id: 1, title: "Registro Beneficiario - María González", date: "2024-01-15", status: "Sincronizado" },
-    { id: 2, title: "Evaluación Proyecto Educativo", date: "2024-01-14", status: "Pendiente" },
-    { id: 3, title: "Informe Mensual Enero", date: "2024-01-13", status: "Sincronizado" },
-    { id: 4, title: "Registro Capacitación Docentes", date: "2024-01-12", status: "Pendiente" }
-  ];
+  // Variables removidas ya que no se usan en el componente actual
 
   const modules = [
     { id: 'dashboard', name: 'Panel Principal', icon: BarChart3, color: 'bg-red-500' },
@@ -139,7 +126,7 @@ export default function Dashboard() {
                 <User size={16} />
               </div>
               <div className="hidden md:block">
-                <span className="text-sm font-medium">{user.name}</span>
+                <span className="text-sm font-medium">{user.username}</span>
               </div>
               <button
                 onClick={handleLogout}

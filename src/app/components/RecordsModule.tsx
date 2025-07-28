@@ -4,22 +4,58 @@ import { useState } from 'react';
 import { 
   Plus, 
   Search, 
-  Filter, 
   Edit, 
   Trash2, 
   Eye, 
   Download,
-  Upload,
   Calendar,
   User,
   MapPin,
-  Phone,
-  Mail,
   Save,
   X,
   CheckCircle
 } from 'lucide-react';
 import RecordWizard from './RecordWizard';
+
+interface RecordFormData {
+  type: string;
+  beneficiary: string;
+  location: string;
+  description: string;
+  status: 'Sincronizado' | 'Pendiente' | 'Error';
+  title?: string;
+  lastModified?: string;
+  [key: string]: string | boolean | File[] | undefined;
+}
+
+interface WizardFormData {
+  type: string;
+  title: string;
+  description: string;
+  priority: string;
+  beneficiaryType: string;
+  beneficiaryName: string;
+  beneficiaryId: string;
+  contactPerson: string;
+  phone: string;
+  email: string;
+  country: string;
+  region: string;
+  municipality: string;
+  community: string;
+  coordinates: string;
+  populationSize: string;
+  startDate: string;
+  endDate: string;
+  budget: string;
+  fundingSource: string;
+  objectives: string;
+  expectedResults: string;
+  attachments: File[];
+  notes: string;
+  responsiblePerson: string;
+  approvalRequired: boolean;
+}
 
 interface Record {
   id: number;
@@ -121,7 +157,7 @@ const RecordsModule = () => {
     setShowForm(true);
   };
 
-  const handleSaveRecord = (formData: any) => {
+  const handleSaveRecord = (formData: RecordFormData) => {
     if (editingRecord) {
       // Actualizar registro existente
       setRecords(records.map(record => 
@@ -133,7 +169,11 @@ const RecordsModule = () => {
       // Crear nuevo registro
       const newRecord: Record = {
         id: Math.max(...records.map(r => r.id)) + 1,
-        ...formData,
+        type: formData.type,
+        title: formData.title || 'Nuevo Registro',
+        beneficiary: formData.beneficiary,
+        location: formData.location,
+        date: new Date().toLocaleDateString(),
         status: 'Pendiente' as const,
         lastModified: new Date().toLocaleString()
       };
@@ -149,16 +189,16 @@ const RecordsModule = () => {
     }
   };
 
-  const handleSaveNewRecord = (formData: any) => {
-    // Crear nuevo registro con los datos del formulario
-    const newRecord = {
+  const handleSaveNewRecord = (formData: WizardFormData) => {
+    // Crear nuevo registro con los datos del formulario del wizard
+    const newRecord: Record = {
       id: records.length + 1,
       type: formData.type,
-      title: formData.title,
+      title: formData.title || `Registro - ${formData.beneficiaryName}`,
       beneficiary: formData.beneficiaryName,
-      location: `${formData.municipality}, ${formData.region}`,
-      date: formData.startDate,
-      status: formData.approvalRequired ? 'Pendiente' : 'Sincronizado',
+      location: formData.municipality ? `${formData.municipality}, ${formData.region}` : 'No especificado',
+      date: formData.startDate || new Date().toLocaleDateString(),
+      status: (formData.approvalRequired ? 'Pendiente' : 'Sincronizado') as 'Pendiente' | 'Sincronizado',
       lastModified: new Date().toLocaleString()
     };
     
@@ -337,7 +377,7 @@ const RecordsModule = () => {
 // Componente del formulario
 const RecordForm = ({ record, onSave, onCancel }: {
   record: Record | null;
-  onSave: (data: any) => void;
+  onSave: (data: RecordFormData) => void;
   onCancel: () => void;
 }) => {
   const [formData, setFormData] = useState({
@@ -348,7 +388,8 @@ const RecordForm = ({ record, onSave, onCancel }: {
     date: record?.date || new Date().toISOString().split('T')[0],
     description: '',
     contact: '',
-    email: ''
+    email: '',
+    status: (record?.status || 'Pendiente') as 'Sincronizado' | 'Pendiente' | 'Error'
   });
 
   const handleSubmit = (e: React.FormEvent) => {

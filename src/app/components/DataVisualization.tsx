@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getHelpRequests } from '../utils/localStorage';
+import { getHelpRequests, HelpRequest } from '../utils/localStorage';
+import { LucideIcon } from 'lucide-react';
 import { 
   BarChart3, 
-  TrendingUp, 
   Users, 
   Clock, 
   AlertTriangle,
@@ -20,7 +20,7 @@ interface ChartData {
 }
 
 export default function DataVisualization() {
-  const [helpRequests, setHelpRequests] = useState<any[]>([]);
+  const [helpRequests, setHelpRequests] = useState<HelpRequest[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -150,7 +150,7 @@ export default function DataVisualization() {
     .slice(-6) // Últimos 6 meses
     .map(([label, value]) => ({ label, value, color: 'bg-indigo-400' }));
 
-  const BarChart = ({ data, title, icon: Icon }: { data: ChartData[], title: string, icon: any }) => {
+  const BarChart = ({ data, title, icon: Icon }: { data: ChartData[], title: string, icon: LucideIcon }) => {
     const maxValue = Math.max(...data.map(d => d.value), 1);
     
     return (

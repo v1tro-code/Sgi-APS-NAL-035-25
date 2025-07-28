@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { LucideIcon } from 'lucide-react';
 import { 
   ChevronLeft,
   ChevronRight,
@@ -24,7 +25,7 @@ interface WizardStep {
   id: string;
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
 }
 
 interface FormData {
@@ -196,7 +197,7 @@ const RecordWizard = ({ onClose, onSave }: {
     }, 2000);
   };
 
-  const updateFormData = (field: string, value: any) => {
+  const updateFormData = (field: string, value: string | boolean | File[]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     // Limpiar error del campo cuando se actualiza
     if (errors[field]) {

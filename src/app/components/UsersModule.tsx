@@ -34,6 +34,16 @@ interface User {
   avatar?: string;
 }
 
+interface UserFormData {
+  name: string;
+  email: string;
+  phone: string;
+  role: 'admin' | 'usuario' | 'lector';
+  status: 'Activo' | 'Inactivo' | 'Suspendido';
+  location: string;
+  password: string;
+}
+
 const UsersModule = () => {
   const [showForm, setShowForm] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -173,7 +183,7 @@ const UsersModule = () => {
     setShowForm(true);
   };
 
-  const handleSaveUser = (formData: any) => {
+  const handleSaveUser = (formData: UserFormData) => {
     if (editingUser) {
       setUsers(users.map(user => 
         user.id === editingUser.id 
@@ -503,7 +513,7 @@ const UsersModule = () => {
 // Componente del formulario de usuario
 const UserForm = ({ user, onSave, onCancel }: {
   user: User | null;
-  onSave: (data: any) => void;
+  onSave: (data: UserFormData) => void;
   onCancel: () => void;
 }) => {
   const [formData, setFormData] = useState({

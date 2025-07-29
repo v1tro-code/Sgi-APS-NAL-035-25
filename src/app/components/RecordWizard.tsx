@@ -694,7 +694,7 @@ const RecordWizard = ({ onClose, onSave }: {
                 />
                 <label
                   htmlFor="file-upload"
-                  className="mt-2 inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 cursor-pointer"
+                  className="mt-2 inline-block bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark cursor-pointer shadow-primary"
                 >
                   Seleccionar Archivos
                 </label>
@@ -827,7 +827,7 @@ const RecordWizard = ({ onClose, onSave }: {
               {currentStep < steps.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                  className="flex items-center space-x-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark shadow-primary"
                 >
                   <span>Siguiente</span>
                   <ChevronRight size={20} />

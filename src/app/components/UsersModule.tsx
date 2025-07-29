@@ -62,7 +62,7 @@ const UsersModule = () => {
       phone: '+505 8888-1234',
       role: 'admin',
       status: 'Activo',
-      location: 'Managua, Nicaragua',
+      location: 'Bogotá, Colombia',
       lastLogin: '2024-01-15 09:30',
       createdAt: '2023-06-15'
     },
@@ -73,7 +73,7 @@ const UsersModule = () => {
       phone: '+505 8888-5678',
       role: 'usuario',
       status: 'Activo',
-      location: 'León, Nicaragua',
+      location: 'Medellín, Colombia',
       lastLogin: '2024-01-14 16:45',
       createdAt: '2023-08-20'
     },
@@ -84,7 +84,7 @@ const UsersModule = () => {
       phone: '+505 8888-9012',
       role: 'usuario',
       status: 'Activo',
-      location: 'Matagalpa, Nicaragua',
+      location: 'Cali, Colombia',
       lastLogin: '2024-01-13 14:20',
       createdAt: '2023-09-10'
     },
@@ -95,7 +95,7 @@ const UsersModule = () => {
       phone: '+505 8888-3456',
       role: 'lector',
       status: 'Inactivo',
-      location: 'Estelí, Nicaragua',
+      location: 'Barranquilla, Colombia',
       lastLogin: '2024-01-05 11:15',
       createdAt: '2023-11-05'
     },
@@ -106,7 +106,7 @@ const UsersModule = () => {
       phone: '+505 8888-7890',
       role: 'usuario',
       status: 'Suspendido',
-      location: 'Granada, Nicaragua',
+      location: 'Cartagena, Colombia',
       lastLogin: '2024-01-10 08:30',
       createdAt: '2023-07-22'
     }
@@ -137,7 +137,7 @@ const UsersModule = () => {
   const getRoleColor = (role: string) => {
     switch (role) {
       case 'admin':
-        return 'bg-red-100 text-red-800';
+        return 'bg-accent-light text-white';
       case 'usuario':
         return 'bg-blue-100 text-blue-800';
       case 'lector':
@@ -154,7 +154,7 @@ const UsersModule = () => {
       case 'Inactivo':
         return 'bg-yellow-100 text-yellow-800';
       case 'Suspendido':
-        return 'bg-red-100 text-red-800';
+        return 'bg-accent-light text-white';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -234,7 +234,7 @@ const UsersModule = () => {
         <div className="flex space-x-2">
           <button 
             onClick={handleNewUser}
-            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center space-x-2"
+            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark flex items-center space-x-2 shadow-primary"
           >
             <Plus size={20} />
             <span>Nuevo Usuario</span>
@@ -302,7 +302,7 @@ const UsersModule = () => {
                 placeholder="Buscar usuarios..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
           </div>
@@ -310,7 +310,7 @@ const UsersModule = () => {
             <select
               value={filterRole}
               onChange={(e) => setFilterRole(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               {roles.map(role => (
                 <option key={role.value} value={role.value}>{role.label}</option>
@@ -343,8 +343,8 @@ const UsersModule = () => {
             <div key={user.id} className="p-6 hover:bg-gray-50">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                    <span className="text-red-600 font-semibold text-lg">
+                  <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                <span className="text-primary font-semibold text-lg">
                       {user.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
                     </span>
                   </div>
@@ -406,7 +406,7 @@ const UsersModule = () => {
                   </button>
                   <button 
                     onClick={() => handleDeleteUser(user.id)}
-                    className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded"
+                    className="p-2 text-gray-600 hover:text-accent hover:bg-accent-light rounded"
                     title="Eliminar usuario"
                   >
                     <Trash2 size={18} />
@@ -497,7 +497,7 @@ const UsersModule = () => {
                 </button>
                 <button
                   onClick={() => setShowPermissions(false)}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark shadow-primary"
                 >
                   Guardar Permisos
                 </button>
@@ -550,7 +550,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             placeholder="Nombre completo del usuario"
             required
           />
@@ -564,7 +564,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             placeholder="correo@ejemplo.com"
             required
           />
@@ -581,7 +581,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             placeholder="+505 8888-1234"
             required
           />
@@ -595,7 +595,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="location"
             value={formData.location}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             placeholder="Ciudad, País"
             required
           />
@@ -611,7 +611,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="role"
             value={formData.role}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             required
           >
             <option value="admin">Administrador</option>
@@ -627,7 +627,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             required
           >
             <option value="Activo">Activo</option>
@@ -647,7 +647,7 @@ const UserForm = ({ user, onSave, onCancel }: {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="Contraseña del usuario"
             required={!user}
           />
@@ -664,7 +664,7 @@ const UserForm = ({ user, onSave, onCancel }: {
         </button>
         <button
           type="submit"
-          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 flex items-center space-x-2"
+          className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark flex items-center space-x-2 shadow-primary"
         >
           <Save size={20} />
           <span>{user ? 'Actualizar' : 'Crear Usuario'}</span>

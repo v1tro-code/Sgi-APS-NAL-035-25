@@ -78,13 +78,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-secondary to-white flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Header */}
         <div className="text-center mb-8">
           <Link 
             href="/"
-            className="inline-flex items-center space-x-2 text-gray-600 hover:text-red-600 mb-6"
+            className="inline-flex items-center space-x-2 text-gray-600 hover:text-primary mb-6"
           >
             <ArrowLeft size={20} />
             <span>Volver al inicio</span>
@@ -92,7 +92,7 @@ export default function LoginPage() {
           
           <div className="flex justify-center mb-6">
             <Image
-              src="/logo.jpeg"
+              src="/icon-institutional.svg"
               alt="Alianza por la Solidaridad"
               width={80}
               height={80}
@@ -106,7 +106,7 @@ export default function LoginPage() {
           <p className="text-gray-600">
             Sistema de Gestión Institucional
           </p>
-          <p className="text-sm text-red-600 font-medium">
+          <p className="text-sm text-gray-500 font-medium">
             APS-NAL-035-25
           </p>
         </div>
@@ -114,8 +114,8 @@ export default function LoginPage() {
         {/* Login Form */}
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-              <Shield className="text-red-600" size={24} />
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <Shield className="text-white" size={24} />
             </div>
           </div>
           
@@ -124,9 +124,9 @@ export default function LoginPage() {
           </h2>
           
           {errors.general && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2">
-              <AlertCircle className="text-red-500" size={20} />
-              <span className="text-red-700">{errors.general}</span>
+            <div className="mb-6 p-4 bg-accent-light border border-accent rounded-lg flex items-center space-x-2">
+              <AlertCircle className="text-accent" size={20} />
+              <span className="text-accent">{errors.general}</span>
             </div>
           )}
           
@@ -143,15 +143,15 @@ export default function LoginPage() {
                   type="text"
                   value={formData.username}
                   onChange={(e) => handleInputChange('username', e.target.value)}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400 ${
-                    errors.username ? 'border-red-500' : 'border-gray-300'
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400 ${
+                    errors.username ? 'border-accent' : 'border-gray-300'
                   }`}
                   placeholder="Ingrese su usuario"
                   disabled={isLoading}
                 />
               </div>
               {errors.username && (
-                <p className="mt-1 text-sm text-red-600 flex items-center">
+                <p className="mt-1 text-sm text-accent flex items-center">
                   <AlertCircle size={16} className="mr-1" />
                   {errors.username}
                 </p>
@@ -170,8 +170,8 @@ export default function LoginPage() {
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400 ${
-                    errors.password ? 'border-red-500' : 'border-gray-300'
+                  className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400 ${
+                    errors.password ? 'border-accent' : 'border-gray-300'
                   }`}
                   placeholder="Ingrese su contraseña"
                   disabled={isLoading}
@@ -190,7 +190,7 @@ export default function LoginPage() {
                 </button>
               </div>
               {errors.password && (
-                <p className="mt-1 text-sm text-red-600 flex items-center">
+                <p className="mt-1 text-sm text-accent flex items-center">
                   <AlertCircle size={16} className="mr-1" />
                   {errors.password}
                 </p>
@@ -203,7 +203,7 @@ export default function LoginPage() {
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
                   disabled={isLoading}
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
@@ -213,7 +213,7 @@ export default function LoginPage() {
               
               <button
                 type="button"
-                className="text-sm text-red-600 hover:text-red-700"
+                className="text-sm text-primary hover:text-primary-dark"
                 disabled={isLoading}
               >
                 ¿Olvidaste tu contraseña?
@@ -223,7 +223,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              className="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-dark transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-primary"
             >
               {isLoading ? (
                 <>

@@ -83,7 +83,7 @@ const RecordsModule = () => {
       type: 'Beneficiario',
       title: 'Registro de Beneficiario - María González',
       beneficiary: 'María González Pérez',
-      location: 'Managua, Nicaragua',
+      location: 'Bogotá, Colombia',
       date: '2024-01-15',
       status: 'Sincronizado',
       lastModified: '2024-01-15 14:30'
@@ -93,7 +93,7 @@ const RecordsModule = () => {
       type: 'Proyecto',
       title: 'Evaluación Proyecto Educativo Rural',
       beneficiary: 'Comunidad El Progreso',
-      location: 'Matagalpa, Nicaragua',
+      location: 'Medellín, Colombia',
       date: '2024-01-14',
       status: 'Pendiente',
       lastModified: '2024-01-14 16:45'
@@ -103,7 +103,7 @@ const RecordsModule = () => {
       type: 'Capacitación',
       title: 'Capacitación en Agricultura Sostenible',
       beneficiary: 'Cooperativa Los Pinos',
-      location: 'León, Nicaragua',
+      location: 'Cali, Colombia',
       date: '2024-01-13',
       status: 'Sincronizado',
       lastModified: '2024-01-13 10:15'
@@ -113,7 +113,7 @@ const RecordsModule = () => {
       type: 'Informe',
       title: 'Informe Mensual de Actividades',
       beneficiary: 'Oficina Regional Norte',
-      location: 'Estelí, Nicaragua',
+      location: 'Barranquilla, Colombia',
       date: '2024-01-12',
       status: 'Error',
       lastModified: '2024-01-12 09:20'
@@ -142,7 +142,7 @@ const RecordsModule = () => {
       case 'Pendiente':
         return 'bg-yellow-100 text-yellow-800';
       case 'Error':
-        return 'bg-red-100 text-red-800';
+        return 'bg-accent-light text-white';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -226,7 +226,7 @@ const RecordsModule = () => {
         <div className="flex space-x-2">
           <button 
             onClick={handleNewRecord}
-            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center space-x-2"
+            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark flex items-center space-x-2 shadow-primary"
           >
             <Plus size={20} />
             <span>Nuevo Registro</span>
@@ -249,7 +249,7 @@ const RecordsModule = () => {
                 placeholder="Buscar registros..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
           </div>
@@ -257,7 +257,7 @@ const RecordsModule = () => {
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               {recordTypes.map(type => (
                 <option key={type.value} value={type.value}>{type.label}</option>
@@ -318,7 +318,7 @@ const RecordsModule = () => {
                   </button>
                   <button 
                     onClick={() => handleDeleteRecord(record.id)}
-                    className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded"
+                    className="p-2 text-gray-600 hover:text-accent hover:bg-accent-light rounded"
                   >
                     <Trash2 size={18} />
                   </button>
@@ -415,7 +415,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
             name="type"
             value={formData.type}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             required
           >
             <option value="Beneficiario">Beneficiario</option>
@@ -433,7 +433,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             required
           />
         </div>
@@ -448,7 +448,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
           name="title"
           value={formData.title}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
           placeholder="Ingrese el título del registro"
           required
         />
@@ -463,7 +463,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
           name="beneficiary"
           value={formData.beneficiary}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
           placeholder="Nombre del beneficiario o entidad"
           required
         />
@@ -479,7 +479,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
             name="location"
             value={formData.location}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             placeholder="Ciudad, País"
             required
           />
@@ -493,7 +493,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
             name="contact"
             value={formData.contact}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
             placeholder="Número de teléfono"
           />
         </div>
@@ -508,7 +508,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
           placeholder="correo@ejemplo.com"
         />
       </div>
@@ -522,7 +522,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
           value={formData.description}
           onChange={handleChange}
           rows={4}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600"
           placeholder="Descripción detallada del registro"
         />
       </div>
@@ -537,7 +537,7 @@ const RecordForm = ({ record, onSave, onCancel }: {
         </button>
         <button
           type="submit"
-          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 flex items-center space-x-2"
+          className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark flex items-center space-x-2 shadow-primary"
         >
           <Save size={20} />
           <span>{record ? 'Actualizar' : 'Guardar'}</span>

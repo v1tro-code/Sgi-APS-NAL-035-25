@@ -209,7 +209,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
           
           <button
             onClick={handleClose}
-            className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold"
+            className="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-dark transition-colors font-semibold shadow-primary"
           >
             Cerrar
           </button>
@@ -244,23 +244,23 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
               <div key={step} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
                   step <= currentStep 
-                    ? 'bg-red-500 border-red-500 text-white'
+                    ? 'bg-primary border-primary text-white'
                     : 'bg-gray-100 border-gray-300 text-gray-400'
                 }`}>
                   {step < currentStep ? <CheckCircle size={20} /> : step}
                 </div>
                 {step < 3 && (
                   <div className={`flex-1 h-0.5 mx-4 ${
-                    step < currentStep ? 'bg-red-500' : 'bg-gray-300'
+                    step < currentStep ? 'bg-primary' : 'bg-gray-300'
                   }`} />
                 )}
               </div>
             ))}
           </div>
           <div className="flex justify-between mt-2 text-sm">
-            <span className={currentStep >= 1 ? 'text-red-600 font-medium' : 'text-gray-500'}>Información Personal</span>
-            <span className={currentStep >= 2 ? 'text-red-600 font-medium' : 'text-gray-500'}>Tipo de Ayuda</span>
-            <span className={currentStep >= 3 ? 'text-red-600 font-medium' : 'text-gray-500'}>Detalles y Contacto</span>
+            <span className={currentStep >= 1 ? 'text-primary font-medium' : 'text-gray-500'}>Información Personal</span>
+            <span className={currentStep >= 2 ? 'text-primary font-medium' : 'text-gray-500'}>Tipo de Ayuda</span>
+            <span className={currentStep >= 3 ? 'text-primary font-medium' : 'text-gray-500'}>Detalles y Contacto</span>
           </div>
         </div>
 
@@ -270,8 +270,8 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
           {currentStep === 1 && (
             <div className="space-y-6">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <User className="text-red-600" size={24} />
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <User className="text-primary" size={24} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900">Información Personal</h3>
                 <p className="text-gray-600">Toda la información será tratada de forma confidencial</p>
@@ -286,7 +286,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                     type="text"
                     value={formData.name}
                     onChange={(e) => updateFormData('name', e.target.value)}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400 ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium placeholder-gray-400 ${
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Puedes usar un nombre ficticio"
@@ -301,7 +301,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.age}
                     onChange={(e) => updateFormData('age', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium"
                   >
                     <option value="">Seleccionar edad</option>
                     <option value="menor-18">Menor de 18 años</option>
@@ -323,7 +323,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => updateFormData('phone', e.target.value)}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400 ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium placeholder-gray-400 ${
                       errors.phone ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="+57 300 123 4567"
@@ -339,7 +339,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => updateFormData('email', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                     placeholder="tu@email.com"
                   />
                 </div>
@@ -353,7 +353,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.municipality}
                     onChange={(e) => updateFormData('municipality', e.target.value)}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium ${
                       errors.municipality ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >
@@ -373,7 +373,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                     type="text"
                     value={formData.neighborhood}
                     onChange={(e) => updateFormData('neighborhood', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                     placeholder="Nombre del barrio o vereda"
                   />
                 </div>
@@ -385,17 +385,15 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
           {currentStep === 2 && (
             <div className="space-y-6">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Heart className="text-red-600" size={24} />
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Heart className="text-primary" size={24} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900">¿Qué tipo de ayuda necesitas?</h3>
+                <h3 className="text-lg font-semibold text-gray-900">¿Qué tipo de situación estás pasando?</h3>
                 <p className="text-gray-600">Selecciona la opción que mejor describa tu situación</p>
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Tipo de ayuda requerida *
-                </label>
+
                 <div className="space-y-3">
                   {[
                     { value: 'violencia-fisica', label: 'Violencia física', icon: '🤕' },
@@ -415,7 +413,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                         value={option.value}
                         checked={formData.helpType === option.value}
                         onChange={(e) => updateFormData('helpType', e.target.value)}
-                        className="text-red-600 focus:ring-red-500"
+                        className="text-primary focus:ring-primary"
                       />
                       <span className="text-xl">{option.icon}</span>
                       <span className="text-gray-700">{option.label}</span>
@@ -462,7 +460,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.isFirstTime}
                     onChange={(e) => updateFormData('isFirstTime', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium"
                   >
                     <option value="">Seleccionar</option>
                     <option value="si">Sí, es la primera vez</option>
@@ -477,7 +475,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.hasChildren}
                     onChange={(e) => updateFormData('hasChildren', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium"
                   >
                     <option value="">Seleccionar</option>
                     <option value="si">Sí</option>
@@ -492,7 +490,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.needsShelter}
                     onChange={(e) => updateFormData('needsShelter', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium"
                   >
                     <option value="">Seleccionar</option>
                     <option value="si">Sí, urgente</option>
@@ -508,8 +506,8 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
           {currentStep === 3 && (
             <div className="space-y-6">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Shield className="text-red-600" size={24} />
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Shield className="text-primary" size={24} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900">Detalles y Forma de Contacto</h3>
                 <p className="text-gray-600">Información adicional para brindarte la mejor ayuda</p>
@@ -523,12 +521,12 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   value={formData.description}
                   onChange={(e) => updateFormData('description', e.target.value)}
                   rows={4}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400 ${
-                    errors.description ? 'border-red-500' : 'border-gray-300'
+                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400 ${
+                    errors.description ? 'border-accent' : 'border-gray-300'
                   }`}
                   placeholder="Comparte solo lo que te sientas cómoda contando. Esta información nos ayudará a preparar mejor el apoyo que necesitas."
                 />
-                {errors.description && <p className="mt-1 text-sm text-red-600">{errors.description}</p>}
+                {errors.description && <p className="mt-1 text-sm text-accent">{errors.description}</p>}
               </div>
               
               <div>
@@ -551,7 +549,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                           value={option.value}
                           checked={formData.preferredContact === option.value}
                           onChange={(e) => updateFormData('preferredContact', e.target.value)}
-                          className="text-red-600 focus:ring-red-500"
+                          className="text-primary focus:ring-primary"
                         />
                         <IconComponent size={20} className="text-gray-600" />
                         <span className="text-gray-700">{option.label}</span>
@@ -559,7 +557,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                     );
                   })}
                 </div>
-                {errors.preferredContact && <p className="mt-1 text-sm text-red-600">{errors.preferredContact}</p>}
+                {errors.preferredContact && <p className="mt-1 text-sm text-accent">{errors.preferredContact}</p>}
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -570,7 +568,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.bestTimeToCall}
                     onChange={(e) => updateFormData('bestTimeToCall', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium"
                   >
                     <option value="">Seleccionar horario</option>
                     <option value="manana">Mañana (8:00 AM - 12:00 PM)</option>
@@ -587,7 +585,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
                   <select
                     value={formData.safeToCall}
                     onChange={(e) => updateFormData('safeToCall', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium"
                   >
                     <option value="">Seleccionar</option>
                     <option value="si">Sí, es seguro</option>
@@ -630,7 +628,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
             {currentStep < 3 ? (
               <button
                 onClick={handleNext}
-                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark shadow-primary"
               >
                 Siguiente
               </button>
@@ -638,7 +636,7 @@ const HelpRequestModal = ({ isOpen, onClose }: HelpRequestModalProps) => {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="flex items-center space-x-2 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center space-x-2 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed shadow-primary"
               >
                 {isSubmitting ? (
                   <>

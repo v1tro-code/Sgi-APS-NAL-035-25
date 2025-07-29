@@ -29,22 +29,26 @@ export default function LandingPage() {
     {
       icon: Shield,
       title: "Protección y Seguridad",
-      description: "Sistema seguro para el registro y seguimiento de casos de violencia de género con protocolos de confidencialidad."
+      description: "Sistema seguro para el registro y seguimiento de casos de violencia de género con protocolos de confidencialidad.",
+      color: "bg-primary"
     },
     {
       icon: Users,
       title: "Gestión de Beneficiarios",
-      description: "Registro completo de beneficiarios con seguimiento personalizado y atención integral."
+      description: "Registro completo de beneficiarios con seguimiento personalizado y atención integral.",
+      color: "bg-blue-500"
     },
     {
       icon: BarChart3,
       title: "Análisis y Reportes",
-      description: "Generación de reportes estadísticos para la toma de decisiones basada en datos."
+      description: "Generación de reportes estadísticos para la toma de decisiones basada en datos.",
+      color: "bg-purple-500"
     },
     {
       icon: Heart,
       title: "Atención Humanizada",
-      description: "Enfoque centrado en la persona con respeto a la dignidad y derechos humanos."
+      description: "Enfoque centrado en la persona con respeto a la dignidad y derechos humanos.",
+      color: "bg-pink-500"
     }
   ];
 
@@ -72,7 +76,7 @@ export default function LandingPage() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <Image
-                src="/logo.jpeg"
+                src="/icon-institutional.svg"
                 alt="Alianza por la Solidaridad"
                 width={50}
                 height={50}
@@ -80,18 +84,18 @@ export default function LandingPage() {
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">Alianza por la Solidaridad</h1>
-                <p className="text-sm text-red-600">ActionAid</p>
+                <p className="text-sm text-secondary">ActionAid</p>
               </div>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="#inicio" className="text-gray-700 hover:text-red-600">Inicio</a>
-              <a href="#servicios" className="text-gray-700 hover:text-red-600">Servicios</a>
-              <a href="#nosotros" className="text-gray-700 hover:text-red-600">Nosotros</a>
-              <a href="#contacto" className="text-gray-700 hover:text-red-600">Contacto</a>
+              <a href="#inicio" className="text-gray-700 hover:text-primary transition-colors">Inicio</a>
+              <a href="#servicios" className="text-gray-700 hover:text-primary transition-colors">Servicios</a>
+              <a href="#nosotros" className="text-gray-700 hover:text-primary transition-colors">Nosotros</a>
+              <a href="#contacto" className="text-gray-700 hover:text-primary transition-colors">Contacto</a>
             </nav>
             <Link 
               href="/login"
-              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors shadow-primary"
             >
               Acceso Administrativo
             </Link>
@@ -100,46 +104,29 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section id="inicio" className="bg-gradient-to-br from-red-50 to-white py-20">
+      <section id="inicio" className="bg-gradient-to-br from-secondary to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
                 Construyendo una vida 
-                <span className="text-red-600">libre de violencia</span>
+                <span className="text-primary">libre de violencia</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
                 Trabajamos en Tumaco y Buenaventura (Colombia) para contribuir al derecho 
                 a una vida libre de violencia, fortaleciendo las capacidades institucionales 
                 y comunitarias de protección.
               </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button 
-                onClick={() => setShowHelpModal(true)}
-                className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center space-x-2"
-              >
-                <span>Solicitar Ayuda</span>
-                <ArrowRight size={20} />
-              </button>
-              <a 
-                href="#servicios"
-                className="border border-red-600 text-red-600 px-8 py-3 rounded-lg hover:bg-red-50 transition-colors text-center"
-              >
-                Conocer Servicios
-              </a>
-              </div>
+
             </div>
-            <div className="relative">
-              <div className="bg-red-100 rounded-2xl p-8">
-                <div className="grid grid-cols-2 gap-4">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-3xl font-bold text-red-600">{stat.number}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="flex justify-center">
+              <button 
+                onClick={() => setShowHelpModal(true)}
+                className="bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary-dark transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg text-lg font-bold hover:shadow-primary cursor-pointer"
+              >
+                <span>Solicitar Ayuda Ahora</span>
+                <ArrowRight size={24} className="animate-pulse" />
+              </button>
             </div>
           </div>
         </div>
@@ -162,8 +149,8 @@ export default function LandingPage() {
               const IconComponent = feature.icon;
               return (
                 <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <IconComponent className="text-red-600" size={24} />
+                  <div className={`w-12 h-12 ${feature.color} rounded-lg flex items-center justify-center mb-4`}>
+                    <IconComponent className="text-white" size={24} />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
@@ -196,7 +183,7 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
-            <div className="bg-red-600 text-white p-8 rounded-2xl">
+            <div className="bg-primary text-white p-8 rounded-2xl shadow-primary">
               <h3 className="text-2xl font-bold mb-6">¿Necesitas Ayuda?</h3>
               <p className="mb-6">
                 Si estás en situación de violencia o conoces a alguien que necesita ayuda, 
@@ -215,7 +202,7 @@ export default function LandingPage() {
               </div>
               <button 
                  onClick={() => setShowHelpModal(true)}
-                 className="mt-6 bg-white text-red-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                 className="mt-6 bg-white text-primary px-6 py-3 rounded-lg hover:bg-secondary transition-colors font-semibold shadow-primary"
                >
                  Contactar Ahora
                </button>
@@ -225,7 +212,7 @@ export default function LandingPage() {
       </section>
 
       {/* Consultation Section */}
-      <section id="consultas" className="py-20 bg-blue-50">
+      <section id="consultas" className="py-20 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -241,8 +228,8 @@ export default function LandingPage() {
             <div>
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Search className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center">
+                    <Search className="w-8 h-8" style={{color: '#fafafa'}} />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">Seguimiento de Casos</h3>
@@ -257,14 +244,14 @@ export default function LandingPage() {
                 
                 <button 
                   onClick={() => setShowTracker(true)}
-                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-3 text-lg font-semibold"
+                  className="w-full bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary-dark transition-colors flex items-center justify-center space-x-3 text-lg font-semibold shadow-primary"
                 >
                   <Search size={24} />
                   <span>Consultar mi Solicitud</span>
                 </button>
                 
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                  <p className="text-sm text-blue-800">
+                <div className="mt-6 p-4 bg-secondary rounded-lg">
+                  <p className="text-sm text-accent">
                     <strong>¿No tienes tu número de radicado?</strong> Revisa el correo electrónico 
                     o mensaje que recibiste después de enviar tu solicitud.
                   </p>
@@ -289,8 +276,8 @@ export default function LandingPage() {
                   </div>
                   
                   <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-blue-600 font-bold">2</span>
+                    <div className="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="font-bold" style={{color: '#fafafa'}}>2</span>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">En Proceso de Atención</h4>
@@ -313,17 +300,17 @@ export default function LandingPage() {
                   </div>
                 </div>
                 
-                <div className="mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="mt-8 p-4 bg-gray-50 border border-gray-200 rounded-lg">
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-red-600 font-bold text-xs">!</span>
+                    <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-white font-bold text-xs">!</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-red-800 mb-1">¿Necesitas ayuda inmediata?</h4>
-                      <p className="text-red-700 text-sm mb-2">
+                      <h4 className="font-semibold text-accent mb-1">¿Necesitas ayuda inmediata?</h4>
+                      <p className="text-accent text-sm mb-2">
                         Si estás en peligro, no esperes. Contacta inmediatamente:
                       </p>
-                      <div className="text-sm text-red-800 space-y-1">
+                      <div className="text-sm text-accent space-y-1">
                         <p><strong>Línea Nacional:</strong> 155</p>
                         <p><strong>Policía:</strong> 123</p>
                         <p><strong>Emergencias:</strong> 123-456-7890</p>
@@ -353,8 +340,8 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="text-red-600" size={32} />
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="text-primary" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Fortalecimiento Institucional</h3>
               <p className="text-gray-600">
@@ -363,8 +350,8 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="text-red-600" size={32} />
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="text-primary" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Capacidades Comunitarias</h3>
               <p className="text-gray-600">
@@ -373,8 +360,8 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="text-red-600" size={32} />
+              <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="text-primary" size={32} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Gestión de Información</h3>
               <p className="text-gray-600">
@@ -402,7 +389,7 @@ export default function LandingPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Información de Contacto</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <MapPin className="text-red-600 mt-1" size={24} />
+                  <MapPin className="text-primary mt-1" size={24} />
                   <div>
                     <h4 className="font-semibold text-gray-900">Oficinas</h4>
                     <p className="text-gray-600">Tumaco, Nariño - Colombia</p>
@@ -410,7 +397,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <Phone className="text-red-600 mt-1" size={24} />
+                  <Phone className="text-primary mt-1" size={24} />
                   <div>
                     <h4 className="font-semibold text-gray-900">Teléfonos</h4>
                     <p className="text-gray-600">Línea de emergencia: 123-456-7890</p>
@@ -418,7 +405,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <Mail className="text-red-600 mt-1" size={24} />
+                  <Mail className="text-primary mt-1" size={24} />
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
                     <p className="text-gray-600">info@alianzasolidaridad.org</p>
@@ -429,13 +416,13 @@ export default function LandingPage() {
               <div className="mt-8">
                 <h4 className="font-semibold text-gray-900 mb-4">Síguenos</h4>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-red-600 hover:text-red-700">
+                  <a href="#" className="text-primary hover:text-primary-dark transition-colors">
                     <Facebook size={24} />
                   </a>
-                  <a href="#" className="text-red-600 hover:text-red-700">
+                  <a href="#" className="text-primary hover:text-primary-dark transition-colors">
                     <Twitter size={24} />
                   </a>
-                  <a href="#" className="text-red-600 hover:text-red-700">
+                  <a href="#" className="text-primary hover:text-primary-dark transition-colors">
                     <Instagram size={24} />
                   </a>
                 </div>
@@ -450,7 +437,7 @@ export default function LandingPage() {
                   </label>
                   <input
                   type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                   placeholder="Tu nombre completo"
                 />
                 </div>
@@ -460,7 +447,7 @@ export default function LandingPage() {
                   </label>
                   <input
                   type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                   placeholder="tu@email.com"
                 />
                 </div>
@@ -470,7 +457,7 @@ export default function LandingPage() {
                   </label>
                   <input
                   type="tel"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                   placeholder="+57 300 123 4567"
                 />
                 </div>
@@ -480,13 +467,13 @@ export default function LandingPage() {
                   </label>
                   <textarea
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                   placeholder="Describe tu situación o consulta..."
                 ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold"
+                  className="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary-dark transition-colors font-semibold shadow-primary"
                 >
                   Enviar Mensaje
                 </button>
@@ -497,13 +484,13 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-accent text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <Image
-                  src="/logo.jpeg"
+                  src="/icon-institutional.svg"
                   alt="Alianza por la Solidaridad"
                   width={40}
                   height={40}
@@ -540,7 +527,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t mt-8 pt-8 text-center text-gray-400" style={{borderTopColor: '#fafafa'}}>
             <p>&copy; 2024 Alianza por la Solidaridad - ActionAid. Todos los derechos reservados.</p>
           </div>
         </div>

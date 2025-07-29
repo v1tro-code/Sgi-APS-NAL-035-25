@@ -5,10 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import { 
   Users, 
-  FileText, 
   BarChart3, 
-  History, 
-  GraduationCap, 
   Settings,
   Bell,
   Search,
@@ -23,19 +20,19 @@ import {
   User,
   Heart
 } from "lucide-react";
-import RecordsModule from "../components/RecordsModule";
+
 import UsersModule from "../components/UsersModule";
 import ReportsModule from "../components/ReportsModule";
-import SyncModule from "../components/SyncModule";
-import TrainingModule from "../components/TrainingModule";
 import AdminRequestsModule from "../components/AdminRequestsModule";
 import DataVisualization from "../components/DataVisualization";
+import HelpRequestModal from "../components/HelpRequestModal";
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [activeModule, setActiveModule] = useState('requests');
   const [user, setUser] = useState<{ username: string; role: string } | null>(null);
+  const [showHelpModal, setShowHelpModal] = useState(false);
   const router = useRouter();
 
   // Verificar autenticación al cargar
@@ -62,20 +59,17 @@ export default function Dashboard() {
   // Variables removidas ya que no se usan en el componente actual
 
   const modules = [
-    { id: 'dashboard', name: 'Panel Principal', icon: BarChart3, color: 'bg-red-500' },
+    { id: 'dashboard', name: 'Panel Principal', icon: BarChart3, color: 'bg-primary' },
     { id: 'requests', name: 'Solicitudes de Ayuda', icon: Heart, color: 'bg-pink-500' },
     { id: 'users', name: 'Gestión de Usuarios', icon: Users, color: 'bg-blue-500' },
-    { id: 'records', name: 'Registros Institucionales', icon: FileText, color: 'bg-green-500' },
-    { id: 'reports', name: 'Reportes e Indicadores', icon: BarChart3, color: 'bg-purple-500' },
-    { id: 'history', name: 'Historial y Sincronización', icon: History, color: 'bg-orange-500' },
-    { id: 'training', name: 'Capacitación', icon: GraduationCap, color: 'bg-indigo-500' }
+    { id: 'reports', name: 'Reportes e Indicadores', icon: BarChart3, color: 'bg-purple-500' }
   ];
 
   // Si no hay usuario, mostrar loading
   if (!user) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
   }
@@ -83,18 +77,18 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-red-600 text-white shadow-lg">
+      <header className="bg-primary text-white shadow-lg">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden p-2 rounded-md hover:bg-red-700"
+              className="lg:hidden p-2 rounded-md hover:bg-primary-dark"
             >
               {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
             <div className="flex items-center space-x-3">
               <Image
-                src="/logo.jpeg"
+                src="/icon-institutional.svg"
                 alt="Alianza por la Solidaridad"
                 width={40}
                 height={40}
@@ -102,7 +96,7 @@ export default function Dashboard() {
               />
               <div>
                 <h1 className="text-xl font-bold">Sistema de Gestión Institucional</h1>
-                <p className="text-red-100 text-sm">APS-NAL-035-25</p>
+                <p className="text-gray-200 text-sm">APS-NAL-035-25</p>
               </div>
             </div>
           </div>
@@ -115,14 +109,14 @@ export default function Dashboard() {
                 <><WifiOff size={20} className="text-yellow-300" /><span className="text-sm hidden md:block">Sin conexión</span></>
               )}
             </div>
-            <button className="p-2 rounded-full hover:bg-red-700 relative">
+            <button className="p-2 rounded-full hover:bg-primary-dark relative">
               <Bell size={20} />
-              <span className="absolute -top-1 -right-1 bg-yellow-400 text-red-600 text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+              <span className="absolute -top-1 -right-1 bg-yellow-400 text-primary text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                 3
               </span>
             </button>
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-red-800 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-primary-dark rounded-full flex items-center justify-center">
                 <User size={16} />
               </div>
               <div className="hidden md:block">
@@ -130,7 +124,7 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={handleLogout}
-                className="p-2 rounded-full hover:bg-red-700"
+                className="p-2 rounded-full hover:bg-primary-dark"
                 title="Cerrar sesión"
               >
                 <LogOut size={16} />
@@ -150,7 +144,7 @@ export default function Dashboard() {
                 <input
                   type="text"
                   placeholder="Buscar..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
             </div>
@@ -164,7 +158,7 @@ export default function Dashboard() {
                     onClick={() => setActiveModule(module.id)}
                     className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                       activeModule === module.id
-                        ? 'bg-red-50 text-red-600 border-l-4 border-red-600'
+                        ? 'bg-secondary text-primary border-l-4 border-primary'
                         : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >
@@ -186,7 +180,10 @@ export default function Dashboard() {
               <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-bold text-gray-900">Panel Principal - Análisis de Datos</h2>
                 <div className="flex space-x-2">
-                  <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center space-x-2">
+                  <button 
+                    onClick={() => setShowHelpModal(true)}
+                    className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark flex items-center space-x-2 shadow-primary"
+                  >
                     <Plus size={20} />
                     <span>Nuevo Registro</span>
                   </button>
@@ -210,21 +207,15 @@ export default function Dashboard() {
             <UsersModule />
           )}
 
-          {activeModule === 'records' && (
-            <RecordsModule />
-          )}
+
 
           {activeModule === 'reports' && (
             <ReportsModule />
           )}
 
-          {activeModule === 'history' && (
-            <SyncModule />
-          )}
 
-          {activeModule === 'training' && (
-            <TrainingModule />
-          )}
+
+
         </main>
       </div>
 
@@ -235,6 +226,12 @@ export default function Dashboard() {
           onClick={() => setSidebarOpen(false)}
         />
       )}
+
+      {/* Help Request Modal */}
+      <HelpRequestModal 
+        isOpen={showHelpModal} 
+        onClose={() => setShowHelpModal(false)} 
+      />
     </div>
   );
 }

@@ -156,7 +156,7 @@ const SyncModule = () => {
       case 'pending':
         return 'bg-yellow-100 text-yellow-800';
       case 'error':
-        return 'bg-red-100 text-red-800';
+        return 'bg-accent-light text-white';
       case 'conflict':
         return 'bg-purple-100 text-purple-800';
       default:
@@ -171,7 +171,7 @@ const SyncModule = () => {
       case 'pending':
         return <Clock size={16} className="text-yellow-600" />;
       case 'error':
-        return <XCircle size={16} className="text-red-600" />;
+        return <XCircle size={16} className="text-accent" />;
       case 'conflict':
         return <AlertCircle size={16} className="text-purple-600" />;
       default:
@@ -186,7 +186,7 @@ const SyncModule = () => {
       case 'update':
         return 'bg-orange-100 text-orange-800';
       case 'delete':
-        return 'bg-red-100 text-red-800';
+        return 'bg-accent-light text-white';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -270,7 +270,7 @@ const SyncModule = () => {
           <button 
             onClick={handleManualSync}
             disabled={isSyncing || !isOnline}
-            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 disabled:bg-gray-400 flex items-center space-x-2"
+            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark disabled:bg-gray-400 flex items-center space-x-2 shadow-primary"
           >
             <RefreshCw size={20} className={isSyncing ? 'animate-spin' : ''} />
             <span>{isSyncing ? 'Sincronizando...' : 'Sincronizar Ahora'}</span>
@@ -298,12 +298,12 @@ const SyncModule = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="flex items-center space-x-3">
             <div className={`p-3 rounded-full ${
-              isOnline ? 'bg-green-100' : 'bg-red-100'
+              isOnline ? 'bg-green-100' : 'bg-accent-light'
             }`}>
               {isOnline ? (
                 <Wifi className="text-green-600" size={24} />
               ) : (
-                <WifiOff className="text-red-600" size={24} />
+                <WifiOff className="text-accent" size={24} />
               )}
             </div>
             <div>
@@ -496,7 +496,7 @@ const SyncModule = () => {
                   </button>
                   <button 
                     onClick={() => handleDeleteRecord(record.id)}
-                    className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded"
+                    className="p-2 text-gray-600 hover:text-accent hover:bg-accent-light rounded"
                     title="Eliminar del historial"
                   >
                     <Trash2 size={18} />

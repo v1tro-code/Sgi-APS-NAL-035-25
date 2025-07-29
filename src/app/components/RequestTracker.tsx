@@ -125,14 +125,14 @@ const RequestTracker: React.FC<RequestTrackerProps> = ({ isOpen, onClose }) => {
                 type="text"
                 value={radicado}
                 onChange={(e) => setRadicado(e.target.value.toUpperCase())}
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 font-medium placeholder-gray-400"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-600 font-medium placeholder-gray-400"
                 placeholder="APS-20240127-1234"
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
               />
               <button
                 onClick={handleSearch}
                 disabled={isSearching || !radicado.trim()}
-                className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center space-x-2"
+                className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center space-x-2 shadow-primary"
               >
                 <Search className="w-5 h-5" />
                 <span>{isSearching ? 'Buscando...' : 'Buscar'}</span>

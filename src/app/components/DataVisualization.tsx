@@ -77,17 +77,17 @@ export default function DataVisualization() {
   const urgencyData: ChartData[] = [
     {
       label: 'Baja',
-      value: helpRequests.filter(r => r.urgencyLevel === 'baja').length,
+      value: helpRequests.filter(r => r.urgencyLevel === 'normal').length,
       color: 'bg-green-400'
     },
     {
       label: 'Media',
-      value: helpRequests.filter(r => r.urgencyLevel === 'media').length,
+      value: helpRequests.filter(r => r.urgencyLevel === 'urgente').length,
       color: 'bg-yellow-400'
     },
     {
       label: 'Alta',
-      value: helpRequests.filter(r => r.urgencyLevel === 'alta').length,
+      value: helpRequests.filter(r => r.urgencyLevel === 'emergencia').length,
       color: 'bg-orange-400'
     },
     {
@@ -99,29 +99,49 @@ export default function DataVisualization() {
 
   const helpTypeData: ChartData[] = [
     {
-      label: 'Violencia Doméstica',
-      value: helpRequests.filter(r => r.helpType === 'violencia_domestica').length,
+      label: 'Violencia Física',
+      value: helpRequests.filter(r => r.helpType === 'violencia-fisica').length,
       color: 'bg-red-400'
     },
     {
-      label: 'Apoyo Legal',
-      value: helpRequests.filter(r => r.helpType === 'apoyo_legal').length,
+      label: 'Violencia Psicológica',
+      value: helpRequests.filter(r => r.helpType === 'violencia-psicologica').length,
+      color: 'bg-orange-400'
+    },
+    {
+      label: 'Violencia Sexual',
+      value: helpRequests.filter(r => r.helpType === 'violencia-sexual').length,
+      color: 'bg-red-600'
+    },
+    {
+      label: 'Violencia Económica',
+      value: helpRequests.filter(r => r.helpType === 'violencia-economica').length,
+      color: 'bg-yellow-400'
+    },
+    {
+      label: 'Amenazas',
+      value: helpRequests.filter(r => r.helpType === 'amenazas').length,
+      color: 'bg-purple-400'
+    },
+    {
+      label: 'Asesoría Legal',
+      value: helpRequests.filter(r => r.helpType === 'asesoria-legal').length,
       color: 'bg-blue-400'
     },
     {
       label: 'Apoyo Psicológico',
-      value: helpRequests.filter(r => r.helpType === 'apoyo_psicologico').length,
-      color: 'bg-purple-400'
+      value: helpRequests.filter(r => r.helpType === 'apoyo-psicologico').length,
+      color: 'bg-green-400'
     },
     {
       label: 'Refugio Temporal',
-      value: helpRequests.filter(r => r.helpType === 'refugio_temporal').length,
+      value: helpRequests.filter(r => r.helpType === 'refugio-temporal').length,
       color: 'bg-indigo-400'
     },
     {
-      label: 'Apoyo Económico',
-      value: helpRequests.filter(r => r.helpType === 'apoyo_economico').length,
-      color: 'bg-green-400'
+      label: 'Otro',
+      value: helpRequests.filter(r => r.helpType === 'otro').length,
+      color: 'bg-gray-400'
     }
   ];
 
@@ -181,54 +201,7 @@ export default function DataVisualization() {
 
   return (
     <div className="space-y-6">
-      {/* Estadísticas principales */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm">Total Solicitudes</p>
-              <p className="text-2xl font-bold text-gray-900">{totalRequests}</p>
-            </div>
-            <Users className="text-blue-500" size={32} />
-          </div>
-        </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm">Pendientes</p>
-              <p className="text-2xl font-bold text-gray-900">
-                {helpRequests.filter(r => r.status === 'pending').length}
-              </p>
-            </div>
-            <Clock className="text-yellow-500" size={32} />
-          </div>
-        </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm">Urgentes</p>
-              <p className="text-2xl font-bold text-gray-900">
-                {helpRequests.filter(r => r.urgencyLevel === 'alta' || r.urgencyLevel === 'critica').length}
-              </p>
-            </div>
-            <AlertTriangle className="text-red-500" size={32} />
-          </div>
-        </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm">Resueltas</p>
-              <p className="text-2xl font-bold text-gray-900">
-                {helpRequests.filter(r => r.status === 'resolved').length}
-              </p>
-            </div>
-            <CheckCircle className="text-green-500" size={32} />
-          </div>
-        </div>
-      </div>
+
 
       {/* Gráficos */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

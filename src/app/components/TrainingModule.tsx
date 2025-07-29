@@ -229,7 +229,7 @@ const TrainingModule = () => {
       case 'Intermedio':
         return 'bg-yellow-100 text-yellow-800';
       case 'Avanzado':
-        return 'bg-red-100 text-red-800';
+        return 'bg-accent-light text-white';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -281,7 +281,7 @@ const TrainingModule = () => {
         <div className="flex space-x-2">
           <button 
             onClick={handleNewCourse}
-            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center space-x-2"
+            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark flex items-center space-x-2 shadow-primary"
           >
             <Plus size={20} />
             <span>Nuevo Curso</span>
@@ -360,7 +360,7 @@ const TrainingModule = () => {
               onClick={() => setActiveTab('courses')}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === 'courses'
-                  ? 'border-red-500 text-red-600'
+                  ? 'border-accent text-accent'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
@@ -370,7 +370,7 @@ const TrainingModule = () => {
               onClick={() => setActiveTab('enrollments')}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === 'enrollments'
-                  ? 'border-red-500 text-red-600'
+                  ? 'border-accent text-accent'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
@@ -380,7 +380,7 @@ const TrainingModule = () => {
               onClick={() => setActiveTab('analytics')}
               className={`py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === 'analytics'
-                  ? 'border-red-500 text-red-600'
+                  ? 'border-accent text-accent'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
@@ -436,7 +436,7 @@ const TrainingModule = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCourses.map((course) => (
                 <div key={course.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                  <div className="h-48 bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
                     <GraduationCap className="text-white" size={64} />
                   </div>
                   <div className="p-4">
@@ -475,7 +475,7 @@ const TrainingModule = () => {
                     </div>
                     
                     <div className="flex items-center space-x-2">
-                      <button className="flex-1 bg-red-600 text-white py-2 px-3 rounded text-sm hover:bg-red-700">
+                      <button className="flex-1 bg-primary text-white py-2 px-3 rounded text-sm hover:bg-primary-dark shadow-primary">
                         Ver Curso
                       </button>
                       <button 
@@ -486,7 +486,7 @@ const TrainingModule = () => {
                       </button>
                       <button 
                         onClick={() => handleDeleteCourse(course.id)}
-                        className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded"
+                        className="p-2 text-gray-600 hover:text-accent hover:bg-accent-light rounded"
                       >
                         <Trash2 size={16} />
                       </button>
@@ -529,7 +529,7 @@ const TrainingModule = () => {
                       <span className={`text-xs font-medium px-2.5 py-0.5 rounded ${
                         enrollment.status === 'Completado' ? 'bg-green-100 text-green-800' :
                         enrollment.status === 'En progreso' ? 'bg-blue-100 text-blue-800' :
-                        'bg-red-100 text-red-800'
+                        'bg-accent-light text-white'
                       }`}>
                         {enrollment.status}
                       </span>

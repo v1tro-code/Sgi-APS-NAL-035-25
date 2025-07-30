@@ -528,7 +528,19 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t mt-8 pt-8 text-center text-gray-400" style={{borderTopColor: '#fafafa'}}>
-            <p>&copy; 2024 Alianza por la Solidaridad - ActionAid. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Alianza por la Solidaridad - ActionAid. Todos los derechos reservados.</p>
+            <div className="mt-4 flex items-center justify-center space-x-2">
+              <span className="text-sm">Hecho con</span>
+              <a 
+                href="https://v1tr0.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-red-500 hover:text-red-600 transition-colors duration-200"
+              >
+                <Heart size={16} className="inline" />
+              </a>
+              <span className="text-sm">por v1tr0</span>
+            </div>
           </div>
         </div>
       </footer>

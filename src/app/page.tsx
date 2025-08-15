@@ -152,18 +152,13 @@ export default function LandingPage() {
                 <span>Solicitar Ayuda Ahora</span>
                 <ArrowRight size={24} className="animate-pulse" />
               </button>
->>>>>>> 255e4db4205d85d85cf5c60cf4112cd293a1de67
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-<<<<<<< HEAD
       <section className="panel py-20 bg-gray-50 min-h-screen flex items-center">
-=======
-      <section className="py-20 bg-gray-50">
->>>>>>> 255e4db4205d85d85cf5c60cf4112cd293a1de67
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -192,11 +187,7 @@ export default function LandingPage() {
       </section>
 
       {/* Services Section */}
-<<<<<<< HEAD
       <section id="servicios" className="panel py-20 min-h-screen flex items-center">
-=======
-      <section id="servicios" className="py-20">
->>>>>>> 255e4db4205d85d85cf5c60cf4112cd293a1de67
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -246,11 +237,7 @@ export default function LandingPage() {
       </section>
 
       {/* Consultation Section */}
-<<<<<<< HEAD
       <section id="consultas" className="panel py-20 bg-secondary min-h-screen flex items-center">
-=======
-      <section id="consultas" className="py-20 bg-secondary">
->>>>>>> 255e4db4205d85d85cf5c60cf4112cd293a1de67
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">

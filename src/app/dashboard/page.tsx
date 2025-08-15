@@ -60,7 +60,7 @@ export default function Dashboard() {
 
   const modules = [
     { id: 'dashboard', name: 'Panel Principal', icon: BarChart3, color: 'bg-primary' },
-    { id: 'requests', name: 'Registros', icon: Heart, color: 'bg-pink-500' },
+    { id: 'requests', name: 'Solicitudes', icon: Heart, color: 'bg-pink-500' },
     { id: 'users', name: 'Gestión de Usuarios', icon: Users, color: 'bg-blue-500' }
   ];
 
@@ -205,7 +205,6 @@ export default function Dashboard() {
           {activeModule === 'users' && (
             <UsersModule />
           )}
-
         </main>
       </div>
 

@@ -1,0 +1,80 @@
+{
+  "monthlyData": [
+    { "month": "Enero", "cases": 15, "date": "2024-01-01", "byType": { "Apoyo Psicológico": 4, "Violencia Física": 3, "Asesoría Legal": 2, "Violencia Psicológica": 2, "Refugio Temporal": 2, "Violencia Sexual": 1, "Amenazas": 1, "Violencia Económica": 0 } },
+    { "month": "Febrero", "cases": 22, "date": "2024-02-01", "byType": { "Apoyo Psicológico": 6, "Violencia Física": 5, "Asesoría Legal": 4, "Violencia Psicológica": 3, "Refugio Temporal": 2, "Violencia Sexual": 1, "Amenazas": 1, "Violencia Económica": 0 } },
+    { "month": "Marzo", "cases": 18, "date": "2024-03-01", "byType": { "Apoyo Psicológico": 5, "Violencia Física": 4, "Asesoría Legal": 3, "Violencia Psicológica": 2, "Refugio Temporal": 2, "Violencia Sexual": 1, "Amenazas": 1, "Violencia Económica": 0 } },
+    { "month": "Abril", "cases": 28, "date": "2024-04-01", "byType": { "Apoyo Psicológico": 8, "Violencia Física": 6, "Asesoría Legal": 5, "Violencia Psicológica": 4, "Refugio Temporal": 3, "Violencia Sexual": 1, "Amenazas": 1, "Violencia Económica": 0 } },
+    { "month": "Mayo", "cases": 35, "date": "2024-05-01", "byType": { "Apoyo Psicológico": 10, "Violencia Física": 8, "Asesoría Legal": 6, "Violencia Psicológica": 5, "Refugio Temporal": 3, "Violencia Sexual": 2, "Amenazas": 1, "Violencia Económica": 0 } },
+    { "month": "Junio", "cases": 31, "date": "2024-06-01", "byType": { "Apoyo Psicológico": 9, "Violencia Física": 7, "Asesoría Legal": 5, "Violencia Psicológica": 4, "Refugio Temporal": 3, "Violencia Sexual": 2, "Amenazas": 1, "Violencia Económica": 0 } },
+    { "month": "Julio", "cases": 42, "date": "2024-07-01", "byType": { "Apoyo Psicológico": 12, "Violencia Física": 9, "Asesoría Legal": 7, "Violencia Psicológica": 6, "Refugio Temporal": 4, "Violencia Sexual": 2, "Amenazas": 2, "Violencia Económica": 0 } },
+    { "month": "Agosto", "cases": 38, "date": "2024-08-01", "byType": { "Apoyo Psicológico": 11, "Violencia Física": 8, "Asesoría Legal": 6, "Violencia Psicológica": 5, "Refugio Temporal": 4, "Violencia Sexual": 2, "Amenazas": 2, "Violencia Económica": 0 } },
+    { "month": "Septiembre", "cases": 45, "date": "2024-09-01", "byType": { "Apoyo Psicológico": 13, "Violencia Física": 10, "Asesoría Legal": 8, "Violencia Psicológica": 6, "Refugio Temporal": 4, "Violencia Sexual": 2, "Amenazas": 2, "Violencia Económica": 0 } },
+    { "month": "Octubre", "cases": 52, "date": "2024-10-01", "byType": { "Apoyo Psicológico": 15, "Violencia Física": 12, "Asesoría Legal": 9, "Violencia Psicológica": 7, "Refugio Temporal": 5, "Violencia Sexual": 2, "Amenazas": 2, "Violencia Económica": 0 } },
+    { "month": "Noviembre", "cases": 48, "date": "2024-11-01", "byType": { "Apoyo Psicológico": 14, "Violencia Física": 11, "Asesoría Legal": 8, "Violencia Psicológica": 6, "Refugio Temporal": 5, "Violencia Sexual": 2, "Amenazas": 2, "Violencia Económica": 0 } },
+    { "month": "Diciembre", "cases": 41, "date": "2024-12-01", "byType": { "Apoyo Psicológico": 12, "Violencia Física": 9, "Asesoría Legal": 7, "Violencia Psicológica": 5, "Refugio Temporal": 4, "Violencia Sexual": 2, "Amenazas": 2, "Violencia Económica": 0 } }
+  ],
+  "helpTypes": [
+    { "type": "Apoyo Psicológico", "count": 85, "percentage": 22.5 },
+    { "type": "Violencia Física", "count": 72, "percentage": 19.1 },
+    { "type": "Asesoría Legal", "count": 68, "percentage": 18.0 },
+    { "type": "Violencia Psicológica", "count": 54, "percentage": 14.3 },
+    { "type": "Refugio Temporal", "count": 38, "percentage": 10.1 },
+    { "type": "Violencia Sexual", "count": 32, "percentage": 8.5 },
+    { "type": "Amenazas", "count": 18, "percentage": 4.8 },
+    { "type": "Violencia Económica", "count": 10, "percentage": 2.7 }
+  ],
+  "municipalityData": {
+    "Tumaco": {
+      "violenciaFisica": 45,
+      "violenciaPsicologica": 32,
+      "violenciaSexual": 18,
+      "violenciaEconomica": 8,
+      "amenazas": 12,
+      "asesoriaLegal": 38,
+      "apoyoPsicologico": 48,
+      "refugioTemporal": 22
+    },
+    "Buenaventura": {
+      "violenciaFisica": 27,
+      "violenciaPsicologica": 22,
+      "violenciaSexual": 14,
+      "violenciaEconomica": 2,
+      "amenazas": 6,
+      "asesoriaLegal": 30,
+      "apoyoPsicologico": 37,
+      "refugioTemporal": 16
+    }
+  },
+  "cases": [
+    { "id": 1, "date": "2024-01-15", "municipality": "Tumaco", "helpType": "Apoyo Psicológico", "urgency": "Media", "status": "Resuelto" },
+    { "id": 2, "date": "2024-01-22", "municipality": "Buenaventura", "helpType": "Violencia Física", "urgency": "Alta", "status": "En Proceso" },
+    { "id": 3, "date": "2024-01-28", "municipality": "Tumaco", "helpType": "Asesoría Legal", "urgency": "Baja", "status": "Pendiente" },
+    { "id": 4, "date": "2024-02-05", "municipality": "Buenaventura", "helpType": "Refugio Temporal", "urgency": "Crítica", "status": "En Proceso" },
+    { "id": 5, "date": "2024-02-12", "municipality": "Tumaco", "helpType": "Violencia Sexual", "urgency": "Crítica", "status": "Resuelto" },
+    { "id": 6, "date": "2024-02-18", "municipality": "Buenaventura", "helpType": "Apoyo Psicológico", "urgency": "Media", "status": "Resuelto" },
+    { "id": 7, "date": "2024-02-25", "municipality": "Tumaco", "helpType": "Violencia Psicológica", "urgency": "Alta", "status": "En Proceso" },
+    { "id": 8, "date": "2024-03-03", "municipality": "Buenaventura", "helpType": "Asesoría Legal", "urgency": "Media", "status": "Pendiente" },
+    { "id": 9, "date": "2024-03-10", "municipality": "Tumaco", "helpType": "Amenazas", "urgency": "Alta", "status": "En Proceso" },
+    { "id": 10, "date": "2024-03-17", "municipality": "Buenaventura", "helpType": "Violencia Económica", "urgency": "Baja", "status": "Resuelto" },
+    { "id": 11, "date": "2024-03-24", "municipality": "Tumaco", "helpType": "Apoyo Psicológico", "urgency": "Media", "status": "Resuelto" },
+    { "id": 12, "date": "2024-04-02", "municipality": "Buenaventura", "helpType": "Violencia Física", "urgency": "Crítica", "status": "En Proceso" },
+    { "id": 13, "date": "2024-04-09", "municipality": "Tumaco", "helpType": "Refugio Temporal", "urgency": "Alta", "status": "Resuelto" },
+    { "id": 14, "date": "2024-04-16", "municipality": "Buenaventura", "helpType": "Violencia Psicológica", "urgency": "Media", "status": "Pendiente" },
+    { "id": 15, "date": "2024-04-23", "municipality": "Tumaco", "helpType": "Asesoría Legal", "urgency": "Baja", "status": "En Proceso" },
+    { "id": 16, "date": "2024-05-01", "municipality": "Buenaventura", "helpType": "Apoyo Psicológico", "urgency": "Media", "status": "Resuelto" },
+    { "id": 17, "date": "2024-05-08", "municipality": "Tumaco", "helpType": "Violencia Sexual", "urgency": "Crítica", "status": "En Proceso" },
+    { "id": 18, "date": "2024-05-15", "municipality": "Buenaventura", "helpType": "Amenazas", "urgency": "Alta", "status": "Resuelto" },
+    { "id": 19, "date": "2024-05-22", "municipality": "Tumaco", "helpType": "Violencia Física", "urgency": "Alta", "status": "Pendiente" },
+    { "id": 20, "date": "2024-05-29", "municipality": "Buenaventura", "helpType": "Refugio Temporal", "urgency": "Crítica", "status": "En Proceso" },
+    { "id": 21, "date": "2024-06-05", "municipality": "Tumaco", "helpType": "Violencia Económica", "urgency": "Baja", "status": "Resuelto" },
+    { "id": 22, "date": "2024-06-12", "municipality": "Buenaventura", "helpType": "Asesoría Legal", "urgency": "Media", "status": "En Proceso" },
+    { "id": 23, "date": "2024-06-19", "municipality": "Tumaco", "helpType": "Apoyo Psicológico", "urgency": "Media", "status": "Resuelto" },
+    { "id": 24, "date": "2024-06-26", "municipality": "Buenaventura", "helpType": "Violencia Psicológica", "urgency": "Alta", "status": "Pendiente" },
+    { "id": 25, "date": "2024-07-03", "municipality": "Tumaco", "helpType": "Violencia Física", "urgency": "Crítica", "status": "En Proceso" },
+    { "id": 26, "date": "2024-07-10", "municipality": "Buenaventura", "helpType": "Violencia Sexual", "urgency": "Crítica", "status": "Resuelto" },
+    { "id": 27, "date": "2024-07-17", "municipality": "Tumaco", "helpType": "Amenazas", "urgency": "Alta", "status": "En Proceso" },
+    { "id": 28, "date": "2024-07-24", "municipality": "Buenaventura", "helpType": "Apoyo Psicológico", "urgency": "Media", "status": "Resuelto" },
+    { "id": 29, "date": "2024-07-31", "municipality": "Tumaco", "helpType": "Refugio Temporal", "urgency": "Alta", "status": "Pendiente" },
+    { "id": 30, "date": "2024-08-07", "municipality": "Buenaventura", "helpType": "Asesoría Legal", "urgency": "Baja", "status": "En Proceso" }
+  ]
+}

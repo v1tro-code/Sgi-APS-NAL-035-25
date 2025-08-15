@@ -80,7 +80,7 @@ const MunicipalityRadarChart: React.FC<MunicipalityRadarChartProps> = ({
           speed: 800
         },
         events: {
-          legendClick: function(chartContext: any, seriesIndex: number, config: any) {
+          legendClick: function(chartContext: Record<string, unknown>, seriesIndex: number) {
             if (onMunicipalitySelect) {
               const municipalityName = seriesIndex === 0 ? 'Tumaco' : 'Buenaventura';
               // Toggle selection: if already selected, deselect; otherwise select
@@ -114,13 +114,13 @@ const MunicipalityRadarChart: React.FC<MunicipalityRadarChartProps> = ({
         radar: {
           size: 140,
           polygons: {
-            strokeColors: '#E5E7EB',
-            strokeWidth: 1,
-            connectorColors: '#E5E7EB',
-            fill: {
-              colors: ['#F9FAFB', '#F3F4F6']
-            }
+          strokeColors: '#E5E7EB',
+          strokeWidth: '1',
+          connectorColors: '#E5E7EB',
+          fill: {
+            colors: ['#f9fafb', '#f3f4f6']
           }
+        }
         }
       },
       fill: {
@@ -157,7 +157,7 @@ const MunicipalityRadarChart: React.FC<MunicipalityRadarChartProps> = ({
           fontSize: '12px',
           color: '#000000'
         },
-        custom: function({series, seriesIndex, dataPointIndex, w}: any) {
+        custom: function({series, seriesIndex, dataPointIndex}: {series: number[][], seriesIndex: number, dataPointIndex: number, w: Record<string, unknown>}) {
           const value = series[seriesIndex][dataPointIndex];
           const municipality = seriesIndex === 0 ? 'Tumaco' : 'Buenaventura';
           const helpType = categories[dataPointIndex];

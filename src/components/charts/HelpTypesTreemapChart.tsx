@@ -114,8 +114,8 @@ const HelpTypesTreemapChart: React.FC<HelpTypesTreemapChartProps> = ({ height = 
           fontWeight: 600,
           colors: ['#000000']
         },
-        formatter: function(text: string, op: any) {
-          return [text, op.value + ' casos'];
+        formatter: function(text: string, op: Record<string, unknown>) {
+          return [text, (op.value as number) + ' casos'];
         }
       },
       tooltip: {
@@ -124,7 +124,7 @@ const HelpTypesTreemapChart: React.FC<HelpTypesTreemapChartProps> = ({ height = 
           fontSize: '12px',
           color: '#000000'
         },
-        custom: function({series, seriesIndex, dataPointIndex, w}: any) {
+        custom: function({series, seriesIndex, dataPointIndex}: {series: number[][], seriesIndex: number, dataPointIndex: number, w: Record<string, unknown>}) {
           const value = series[seriesIndex][dataPointIndex];
           
           return `<div style="

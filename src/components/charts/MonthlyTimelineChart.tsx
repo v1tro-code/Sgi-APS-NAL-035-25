@@ -55,7 +55,7 @@ const MonthlyTimelineChart: React.FC<MonthlyTimelineChartProps> = ({ height = 50
       return helpTypes.map(type => ({
         name: type,
         data: mockData.monthlyData.map(monthData => 
-          Math.round((monthData.byType[type] || 0) * municipalityRatio)
+          Math.round(((monthData.byType as Record<string, number>)[type] || 0) * municipalityRatio)
         )
       }));
     }
@@ -63,7 +63,7 @@ const MonthlyTimelineChart: React.FC<MonthlyTimelineChartProps> = ({ height = 50
     // Use full data from JSON
     return helpTypes.map(type => ({
       name: type,
-      data: mockData.monthlyData.map(monthData => monthData.byType[type] || 0)
+      data: mockData.monthlyData.map(monthData => (monthData.byType as Record<string, number>)[type] || 0)
     }));
   };
 
@@ -86,7 +86,7 @@ const MonthlyTimelineChart: React.FC<MonthlyTimelineChartProps> = ({ height = 50
     const weekDays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
     
     return helpTypes.map(type => {
-      const baseValue = monthData.byType[type] || 0;
+      const baseValue = (monthData.byType as Record<string, number>)[type] || 0;
       if (selectedMunicipality) {
         const ratio = selectedMunicipality === 'Tumaco' ? 0.6 : 0.4;
         const adjustedBase = Math.round(baseValue * ratio);
@@ -126,15 +126,8 @@ const MonthlyTimelineChart: React.FC<MonthlyTimelineChartProps> = ({ height = 50
           dataLabels: {
             position: 'center'
           }
-        },
-        line: {
-          curve: 'smooth'
         }
-      } : {
-        line: {
-          curve: 'smooth'
-        }
-      },
+      } : {},
       stroke: viewMode === 'overview' ? {
         width: [0, 0, 0, 0, 0, 3],
         curve: 'smooth'
